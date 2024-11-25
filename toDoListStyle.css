@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --draftBorder: 1px dashed black;
+    --main: #fff;
+    --margin: 1rem;
+    --mainHeight: 3rem;
+    --smallMargin: 0.4rem;
+    --border: 1px solid black;
+    --darkGrey: hsl(0, 0%, 45%);
+}
+body {
+    background-color:lightblue;
+    display:flex;
+    justify-content: center;
+    font-family: sans-serif;
+}
+#wrap {
+    height:98vh;
+    width:95vw;
+    display:flex;
+    justify-content:center;
+
+}
+#mainContent {
+    
+    border-color: red;
+    height:90%;
+    width:85%;
+    margin: auto 0 auto 0;
+    background: var(--main);
+    padding: var(--smallMargin) var(--smallMargin);
+    border-radius:0.3rem;
+    overflow: auto;
+}
+#headerOfMain {
+    display: flex;
+    align-items:center;
+    padding-right:1rem;
+    min-width:26rem;
+}
+#categoriesButton, #filterButton {
+    margin-right: var(--margin);
+    border: 1px solid black;
+    border-radius: var(--smallMargin);
+    padding: var(--smallMargin);
+}
+.buttonActive {
+    background-color: black;
+    color: white;
+    position: relative;
+}
+.window {
+    display:flex;
+    flex-direction:column;
+    gap:var(--smallMargin);
+    position: absolute;
+    left: -1rem;
+    top: 2rem;
+    max-width: 10rem;
+    max-height: 10rem;
+    overflow: auto;
+    z-index: 2;
+    background-color: rgb(255, 255, 255);
+    box-shadow: grey -4px -4px 10px;
+    width: max-content;
+}
+#sort .window {
+    max-width:15rem;
+}
+#headerOfMain div:nth-of-type(1), .button {
+    margin-left:auto;
+    margin-right:1rem;
+    border: 1px solid black;
+    border-radius: var(--smallMargin);
+    padding: var(--smallMargin);
+}
+#plusButton {
+    width:1em;
+    height:1em;
+    font-size:1.5rem;
+}
+#plusButton:hover + .hoverToolTip {
+    display:block;
+}
+.hoverToolTip {
+    display: none;
+    background-color:black;
+    color: white;
+    position:absolute;
+    width:13rem;
+    right:-2rem;
+    text-align:center;
+    top:2rem;
+}
+h1 {
+    margin-left: var(--margin);
+}
+#innerWrap {
+    border: 1px solid black;
+    border-radius: 0.2rem;
+}
+#header{
+    display:flex;
+    padding: var(--smallMargin) var(--smallMargin) 0 0.3rem;
+    gap:var(--smallMargin);
+
+}
+#header div{
+    color: var(--darkGrey);
+}
+
+div #task{
+    text-align:left;
+    max-width:85%;
+}
+.mark {
+    text-align: center;
+    font-size:0.4rem;
+    width: 2rem;
+    margin-right:auto;
+}
+.details {
+  margin-left:auto;
+}
+.inactive {
+    display:none;
+}
+.reveal .divBox, .reveal .categoryBox, .reveal small{
+    display:block;
+}
+.categoryBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+.divBox, .categoryBox, small {
+    border-top: 0.5px solid lightgrey;
+    padding: var(--smallMargin);
+    display:none;
+}
+.categoryWindow {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: fit-content;
+    max-height: 5rem;
+    border: var(--draftBorder);
+    overflow: auto;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: var(--smallMargin);
+    gap: var(--smallMargin);
+}
+.listItemWrapper.reveal {
+    border-bottom:var(--border);
+}
+.listItem {
+    height:var(--mainHeight);
+    max-height: var(--mainHeight);
+    display:flex;
+    justify-content:center;
+    padding: var(--smallMargin) var(--smallMargin) 0 0.3rem;
+}
+.listItem input[type=text] {
+    transition: opacity 1.5s ease;
+    margin-right:1rem;
+}
+/*Absolute positioning won't work, for the carat and the sparkle;
+but also don't want the carat to move the flex item off*/
+.carat {
+    font-size:1.5rem;
+    color:var(--darkGrey);
+    position:relative;
+    transition: transform 0.5s ease;
+    margin-right:1rem;
+    margin-left: 1rem;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.carat.rotate {
+    transform: rotate(-180deg);
+}
+.strikethrough {
+    text-decoration: line-through;
+    opacity:0;
+}
+.opacityOne{
+    transition: opacity 1s ease;
+    opacity: 0;
+   
+}
+#noComplete {
+    text-align:center;
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+input:disabled {
+    background-color: white;
+}
+.textItem {
+    border: 0px solid white;
+    border-bottom:1px solid grey;
+    height: 70%;
+    max-height:70%;
+    width: 90%;
+    margin: auto 0 auto 0;
+    overflow: auto;
+    overflow-wrap:break-word;
+    white-space:nowrap;
+}
+.listItem input[type="checkbox"] {
+    margin-right:var(--margin);
+    border-radius:1rem;
+    margin-left:var(--smallMargin);
+}
+.tabNav {
+    display:flex;
+    padding-left: var(--margin);
+    padding-right: var(--smallMargin);
+    position:relative;
+}
+#tabsAndContent {
+    min-width:400px;
+}
+.tabs {
+    padding: var(--smallMargin) var(--margin);
+    border-top: var(--border);
+    border-left: var(--border);
+    border-right: var(--border);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+.tabs.active{
+    position:relative;
+    top:1px;
+    border-bottom:2px solid white;
+}
+.trashEnabled {
+    background-color:slategray;
+    color: white;
+}
+#toDo {
+    display:flex;
+    transition: width 2s ease;
+}
+#toDo.sparkle {
+    padding-right:var(--smallMargin);
+}
+#toDo::after {
+    content: "\2728";
+    opacity:0;
+    display:none;
+    position:relative;
+    transition: opacity 0.5s ease;
+    margin-left:var(--smallMargin);
+    top:-0.2rem;
+}
+#toDo.sparkle::after {
+    opacity:1;
+    display:inline-block;
+    position:relative;
+}
+#sort {
+    margin-left: auto;
+    position:relative;
+}
+
+.ascend {
+    background: linear-gradient(45deg,lightblue, white);
+}
+.descend { 
+    background: linear-gradient(135deg, white, lightblue);
+}
+
+.categoriesSheet {
+    border: var(--draftBorder);
+    padding: 0 var(--margin) var(--margin) var(--margin);
+    line-height: 1.5rem;
+}
+.addCategoryButton {
+    border: var(--border);
+    border-color: white;
+    border-radius: var(--smallMargin);
+    padding: var(--smallMargin);
+    width: fit-content;
+}
+.categoryButton {
+    border-style: solid;
+}
+/*.categoryButton:focus::after {
+    display:inline-block;
+    margin-left:1rem;
+    content: "🗑️";
+}
+.categoryWindow .categoryButton:focus::after{
+    display:none;
+}*/
+.categoryInput {
+    display:flex;
+    flex-direction:row;
+    gap: var(--smallMargin);
+    align-items:baseline;
+}
+input[type=color] {
+    border-color:black;
+    background-color: white;
+}
+.categoryHouser {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--smallMargin);
+}
