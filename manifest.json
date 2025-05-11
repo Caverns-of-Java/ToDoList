@@ -3,12 +3,12 @@
   "short_name": "ToDoList",
   "icons": [
     {
-      "src": "/toDoListIcon.png",
+      "src": "./toDoListIcon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/toDoListIcon.png",
+      "src": "./toDoListIcon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
