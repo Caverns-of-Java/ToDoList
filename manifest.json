@@ -13,6 +13,6 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/TimeCalculator/",
+  "start_url": "/ToDoList/",
   "display": "standalone"
 }
